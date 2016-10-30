@@ -1,0 +1,219 @@
+set $mod Mod4 
+set $background "#000000"
+
+# Font for window titles. Will also be used by the bar unless a different font
+# is used in the bar {} block below. ISO 10646 = Unicode
+font -misc-fixed-medium-r-normal--13-120-75-75-C-70-iso10646-1
+# The font above is very space-efficient, that is, it looks good, sharp and
+# clear in small sizes. However, if you need a lot of unicode glyphs or
+# right-to-left text rendering, you should instead use pango for rendering and
+# chose a FreeType font, such as:
+# font pango:DejaVu Sans Mono 10
+
+# Use Mouse+$mod to drag floating windows to their wanted position
+floating_modifier $mod
+
+# start a terminal
+bindsym $mod+Return exec i3-sensible-terminal
+
+# kill focused window
+bindsym $mod+Shift+q kill
+
+# start dmenu (a program launcher)
+bindsym $mod+d exec ~/scripts/dmenu_run_wrapper.sh
+
+# change focus
+bindsym $mod+Left focus left
+bindsym $mod+Down focus down
+bindsym $mod+Up focus up
+bindsym $mod+Right focus right
+
+# move windows
+bindsym $mod+Shift+Left move left
+bindsym $mod+Shift+Down move down
+bindsym $mod+Shift+Up move up
+bindsym $mod+Shift+Right move right
+
+# split in horizontal orientation
+bindsym $mod+h split h
+
+# split in vertical orientation
+bindsym $mod+v split v
+
+# enter fullscreen mode for the focused container
+bindsym $mod+f fullscreen
+bindsym $mod+Shift+f fullscreen global
+
+# change container layout (stacked, tabbed, toggle split)
+bindsym $mod+s layout stacking
+bindsym $mod+w layout tabbed
+bindsym $mod+x layout toggle split
+
+# toggle tiling / floating
+bindsym $mod+Shift+space floating toggle
+
+# change focus between tiling / floating windows
+bindsym $mod+space focus mode_toggle
+
+# focus the parent container
+bindsym $mod+a focus parent
+
+# focus the child container
+#bindsym $mod+d focus child
+
+# switch to workspace
+bindsym $mod+1 workspace 1
+bindsym $mod+2 workspace 2
+bindsym $mod+3 workspace 3
+bindsym $mod+4 workspace 4
+bindsym $mod+5 workspace 5
+bindsym $mod+6 workspace 6
+bindsym $mod+7 workspace 7
+bindsym $mod+8 workspace 8
+bindsym $mod+9 workspace 9
+bindsym $mod+0 workspace 10
+
+# move focused container to workspace
+bindsym $mod+Shift+1 move container to workspace 1
+bindsym $mod+Shift+2 move container to workspace 2
+bindsym $mod+Shift+3 move container to workspace 3
+bindsym $mod+Shift+4 move container to workspace 4
+bindsym $mod+Shift+5 move container to workspace 5
+bindsym $mod+Shift+6 move container to workspace 6
+bindsym $mod+Shift+7 move container to workspace 7
+bindsym $mod+Shift+8 move container to workspace 8
+bindsym $mod+Shift+9 move container to workspace 9
+bindsym $mod+Shift+0 move container to workspace 10
+
+# reload the configuration file
+bindsym $mod+Shift+c reload
+# restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
+bindsym $mod+Shift+r restart
+# exit i3 (logs you out of your X session)
+bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
+
+# resize window (you can also use the mouse for that)
+mode "resize" {
+        # These bindings trigger as soon as you enter the resize mode
+
+        # same bindings, but for the arrow keys
+        bindsym Left resize shrink width 10 px or 10 ppt
+        bindsym Down resize grow height 10 px or 10 ppt
+        bindsym Up resize shrink height 10 px or 10 ppt
+        bindsym Right resize grow width 10 px or 10 ppt
+
+        bindsym Shift+Left resize shrink width 1 px or 1 ppt
+        bindsym Shift+Down resize grow height 1 px or 1 ppt
+        bindsym Shift+Up resize shrink height 1 px or 1 ppt
+        bindsym Shift+Right resize grow width 1 px or 1 ppt
+
+        # back to normal: Enter or Escape
+        bindsym Return mode "default"
+        bindsym Escape mode "default"
+}
+
+bindsym $mod+r mode "resize"
+
+# Start i3bar to display a workspace bar (plus the system information i3status
+# finds out, if available)
+bar {
+        status_command i3status
+        #tray_output primary
+        modifier Mod3
+        mode hide
+        colors {
+            background #000000
+            statusline #ffffff
+            separator #666666
+
+            focused_workspace  #ffffff #ffffff #000000
+            active_workspace   #000000 #000000 #ffffff
+            inactive_workspace #000000 #000000 #ffffff
+            urgent_workspace   #ff0000 #ff0000 #ffffff
+       }
+}
+
+#start user defined commands
+
+#audio symbol
+exec pasystray
+
+#hide borders
+hide_edge_borders both
+new_window none
+new_float none
+
+#Screenlock
+bindsym $mod+l exec ~/scripts/lock_screen.sh
+
+#scratchpad
+bindsym $mod+plus scratchpad show
+bindsym $mod+Shift+plus move scratchpad
+
+#move current workspace to other monitor
+bindsym $mod+control+Right move workspace to output right
+bindsym $mod+control+Left move workspace to output left
+
+#open filemanager
+bindsym $mod+e exec pcmanfm
+
+#move to workspace on the right
+bindsym $mod+control+d workspace next
+bindsym $mod+control+a workspace prev
+
+#output selection
+bindsym $mod+p exec scripts/select_output.sh
+bindsym XF86Display exec scripts/select_output.sh
+
+#set background
+exec ~/.fehbg
+
+#provide small terminal
+bindsym $mod+Shift+Return exec xterm
+for_window [class="XTerm"] floating enable
+for_window [title="CSSH"] floating disable
+
+#redshift
+exec redshift-gtk -l 48:9
+
+mode "I"
+{
+        bindsym $mod+Escape mode "default"
+}
+        bindsym $mod+Escape mode "I"
+
+#color definition
+# class                 border  backgr. text    indicator
+client.focused          #222222 #222222 #ffffff #ffffff
+client.focused_inactive #000000 #000000 #888888 #ffffff
+client.unfocused        #000000 #000000 #555555 #ffffff
+client.urgent           #ff0000 #ff0000 #ffffff #ffffff
+client.background       #000000
+
+#notifications
+exec dunst
+
+#monitor brightness
+bindsym XF86MonBrightnessUp exec xbacklight -time 50 +5
+bindsym XF86MonBrightnessDown exec xbacklight -time 50 -5
+
+#volume control
+bindsym XF86AudioRaiseVolume exec pactl set-sink-volume @DEFAULT_SINK@ +5%
+bindsym $mod+Prior exec pactl set-sink-volume @DEFAULT_SINK@ +5%
+bindsym XF86AudioLowerVolume exec pactl set-sink-volume @DEFAULT_SINK@ -5%
+bindsym $mod+Next exec pactl set-sink-volume @DEFAULT_SINK@ -5%
+bindsym XF86AudioMute exec pactl set-sink-mute @DEFAULT_SINK@ toggle
+
+bindsym $mod+Shift+s exec ~/somescript.sh
+
+bindsym Pause exec ~/scripts/change_hw_settings.sh
+
+# create keymap file in .i3/keylayout
+exec_always ~/scripts/pi3c_wrapper.sh
+
+for_window [class="Sxiv"] fullscreen enable
+
+focus_on_window_activation urgent
+
+for_window [class="XCalc"] floating enable
+bindsym XF86Calculator exec xcalc
