@@ -276,5 +276,5 @@ URxvt.scrollBar: false
 ! URxvt*iso14755_52: boolean
 
 URxvt*.transparent: true
-URxvt*.shading: 50
+URxvt*.shading: 70
 

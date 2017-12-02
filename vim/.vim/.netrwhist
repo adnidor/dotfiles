@@ -1,10 +1,7 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =8
-let g:netrw_dirhist_1='/media/ubuntupart/home/yannik/schutzmantel_sn'
-let g:netrw_dirhist_2='/home/yannik/.i3'
-let g:netrw_dirhist_3='/home/yannik/.offlineimap'
-let g:netrw_dirhist_4='/home/yannik/test'
-let g:netrw_dirhist_5='/home/yannik/sync2/schule/G0P/Deutsch/JudenimMittelalter/templates'
-let g:netrw_dirhist_6='/home/yannik/Downloads'
-let g:netrw_dirhist_7='/home/yannik/.irssi'
-let g:netrw_dirhist_8='/home/yannik/supreme-rotary-phone/helpers'
+let g:netrw_dirhist_cnt =5
+let g:netrw_dirhist_1='/home/yannik/supreme-rotary-phone/helpers'
+let g:netrw_dirhist_2='/home/yannik/microcontroller/attiny'
+let g:netrw_dirhist_3='/home/yannik/supreme-rotary-phone/helpers'
+let g:netrw_dirhist_4='/home/yannik/supreme-rotary-phone/flask/templates'
+let g:netrw_dirhist_5='/home/yannik/registry/data/inetnum'

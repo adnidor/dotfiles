@@ -17,7 +17,7 @@ shopt -s histappend
 
 # for setting history length see HISTSIZE and HISTFILESIZE in bash(1)
 HISTSIZE=1000
-HISTFILESIZE=2000
+HISTFILESIZE=20000
 
 # check the window size after each command and, if necessary,
 # update the values of LINES and COLUMNS.
@@ -173,4 +173,11 @@ alias emacs=vim
 
 alias hd='hexdump -C'
 
+alias publicip='curl ifconfig.co'
+
 eval $(thefuck --alias)
+
+alias start="sudo systemctl start"
+alias stop="sudo systemctl stop"
+
+export PATH="$HOME/opt/cross/bin:$PATH"

@@ -371,7 +371,7 @@ statusbar = {
   };
 };
 settings = {
-  core = { real_name = "Unknown"; user_name = "yannik"; nick = "yannik"; };
+  core = { real_name = "Unknown"; user_name = "adnidor"; nick = "adnidor"; };
   "fe-text" = { actlist_sort = "refnum"; };
   "fe-common/core" = {
     beep_msg_level = "MSGS PUBLIC NOTICES SNOTES CTCPS ACTIONS KICKS MODES TOPICS WALLOPS INVITES NICKS DCC DCCMSGS CLIENTNOTICE CLIENTCRAP CLIENTERROR ";
