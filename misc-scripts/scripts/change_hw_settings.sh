@@ -5,11 +5,12 @@ dmenu -l $1 -nb black -nf white -sb white -sf black
 }
 
 selection=$(Dmenu 7 <<EOF
-Touchpad On/Off
 Keyboard layout
 Keyboard Backlight
+Wallpaper
 Fancontrol
 Resume on Lid open
+Touchpad On/Off
 Suspend
 Lock&Suspend
 EOF
@@ -55,6 +56,9 @@ EOF
     $(dirname $0)/lock_screen.sh &
     sleep 2
     systemctl suspend
+    ;;
+"Wallpaper")
+    $(dirname $0)/select_background.sh
     ;;
 *)
 	echo Fehler

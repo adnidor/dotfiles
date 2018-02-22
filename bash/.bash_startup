@@ -116,6 +116,7 @@ fi
 #start user defined functions
 alias battery="upower -i /org/freedesktop/UPower/devices/battery_BAT1|grep --color=never -E 'state|percentage'"
 alias bat=battery
+alias batman=bat
 alias batwatch="watch bash -c \"upower -i /org/freedesktop/UPower/devices/battery_BAT1|grep --color=never -E 'state|percentage'i\""
 
 function mcdir {
@@ -166,7 +167,6 @@ function extract()      # Handy Extract Program
     fi
 } 
 
-alias todo='wunderline add'
 alias sudos='sudo -s'
 alias mail=mutt
 alias emacs=vim

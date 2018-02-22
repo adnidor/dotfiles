@@ -228,3 +228,5 @@ bindsym XF86Calculator exec xcalc
 
 #logitech unifing receiver
 exec --no-startup-id solaar
+
+bindsym $mod+t exec ~/scripts/dmenu_todo.sh
