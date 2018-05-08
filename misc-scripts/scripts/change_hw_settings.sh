@@ -4,9 +4,10 @@ function Dmenu() {
 dmenu -l $1 -nb black -nf white -sb white -sf black
 }
 
-selection=$(Dmenu 7 <<EOF
+selection=$(Dmenu 8 <<EOF
 Keyboard layout
 Keyboard Backlight
+Desk lamp
 Wallpaper
 Fancontrol
 Resume on Lid open
@@ -44,6 +45,13 @@ EOF
     ;;    
 "Resume on Lid open")
     $(dirname $0)/lidresume.sh $(Dmenu 2 <<EOF
+On
+Off
+EOF
+    )
+    ;;
+"Desk lamp")
+    $(dirname $0)/desklamp.py $(Dmenu 2 <<EOF
 On
 Off
 EOF
