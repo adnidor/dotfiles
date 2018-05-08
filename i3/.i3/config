@@ -185,7 +185,7 @@ mode "I"
 {
         bindsym $mod+Escape mode "default"
 }
-        bindsym $mod+Escape mode "I"
+#        bindsym $mod+Escape mode "I"
 
 #color definition
 # class                 border  backgr. text    indicator
@@ -230,3 +230,13 @@ bindsym XF86Calculator exec xcalc
 exec --no-startup-id solaar
 
 bindsym $mod+t exec ~/scripts/dmenu_todo.sh
+
+bindsym $mod+Escape bar mode toggle
+
+bindsym $mod+Print exec scrot
+bindsym $mod+Shift+Print exec scrot -s
+
+bindsym XF86Sleep exec ~/scripts/desklamp.py toggle
+
+#dirty hack, see https://bugs.debian.org/cgi-bin/bugreport.cgi?bug=854376
+#exec gpg-connect-agent updatestartuptty /bye
