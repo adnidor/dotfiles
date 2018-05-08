@@ -8,12 +8,8 @@
 ! URxvt*geometry: geom
 
 ! Use the specified colour as the windows background colour [default
-URxvt.background: black
-XTerm*background: black
 
 ! Use the specified colour as the windows foreground colour [default
-URxvt.foreground: white
-XTerm*foreground: white
 
 ! Use the specified colour for the colour value n, where 0-7
 ! URxvt*colorn: colour
@@ -276,5 +272,42 @@ URxvt.scrollBar: false
 ! URxvt*iso14755_52: boolean
 
 URxvt*.transparent: true
-URxvt*.shading: 70
+URxvt*.shading: 40
+
+! special
+*.foreground:   #f8f8f8
+*.background:   #171717
+*.cursorColor:  #f8f8f8
+
+! black
+*.color0:       #171717
+*.color8:       #38252c
+
+! red
+*.color1:       #d81765
+*.color9:       #ff0000
+
+! green
+*.color2:       #97d01a
+*.color10:      #76b639
+
+! yellow
+*.color3:       #ffa800
+*.color11:      #e1a126
+
+! blue
+*.color4:       #16b1fb
+*.color12:      #289cd5
+
+! magenta
+*.color5:       #ff2491
+*.color13:      #ff2491
+
+! cyan
+*.color6:       #0fdcb6
+*.color14:      #0a9b81
+
+! white
+*.color7:       #ebebeb
+*.color15:      #f8f8f8
 
