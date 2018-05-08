@@ -9,8 +9,10 @@ set clipboard=unnamedplus
 syntax on
 cmap wsudo -s w sudo -s tee > /dev/null %
 autocmd FileType make setlocal noexpandtab
-autocmd BufNewFile,BufRead /tmp/mutt* set noautoindent filetype=mail tw=78 digraph nolist
-autocmd BufNewFile,BufRead ~/tmp/mutt* set noautoindent filetype=mail tw=78 digraph nolist
+autocmd FileType tex set makeprg=pdflatex\ %
+autocmd BufNewFile,BufRead /tmp/mutt* set noautoindent filetype=mail tw=78 nolist
+autocmd BufNewFile,BufRead ~/tmp/mutt* set noautoindent filetype=mail tw=78 nolist
 
+map <F2> :w<CR>:make<CR>
 nnoremap gr gd[{V%::s/<C-R>///gc<left><left><left>
 
