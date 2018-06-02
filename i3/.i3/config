@@ -238,5 +238,7 @@ bindsym $mod+Shift+Print exec scrot -s
 
 bindsym XF86Sleep exec ~/scripts/desklamp.py toggle
 
+bindsym $mod+F1 exec mpc toggle
+
 #dirty hack, see https://bugs.debian.org/cgi-bin/bugreport.cgi?bug=854376
 #exec gpg-connect-agent updatestartuptty /bye
