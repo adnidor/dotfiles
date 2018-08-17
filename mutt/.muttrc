@@ -43,6 +43,7 @@ set sig_dashes=no
 set strict_threads
 
 unignore x-spam-level
+unignore list-unsubscribe
 
 macro pager,index <F2> <pipe-message>~/mail_to_kanboard.py<enter>
 macro pager,index <F3> <pipe-message>~/mail_to_kanboard.py 
