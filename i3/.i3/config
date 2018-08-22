@@ -242,5 +242,7 @@ bindsym $mod+F1 exec mpc toggle
 
 exec blueberry-tray
 
+exec --no-startup-id libinput-gestures
+
 #dirty hack, see https://bugs.debian.org/cgi-bin/bugreport.cgi?bug=854376
 #exec gpg-connect-agent updatestartuptty /bye
