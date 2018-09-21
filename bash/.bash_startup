@@ -116,7 +116,6 @@ fi
 #start user defined functions
 alias battery="upower -i /org/freedesktop/UPower/devices/battery_BAT1|grep --color=never -E 'state|percentage'"
 alias bat=battery
-alias batman=bat
 alias batwatch="watch bash -c \"upower -i /org/freedesktop/UPower/devices/battery_BAT1|grep --color=never -E 'state|percentage'i\""
 
 function mcdir {
@@ -124,15 +123,12 @@ mkdir $1
 cd $1
 }
 
-alias cpd="cp -r"
-
 alias mkfile=touch
 alias ausschalten='sudo shutdown -h now'
 alias pgp=gpg
 alias cls=clear
 
 alias scan_wifi_periodically='while true; do sudo iwlist wlan0 scanning | grep SSID; echo -------; sleep 5; done'
-alias iamgod=sudo
 
 fortune -s
 
@@ -141,9 +137,6 @@ fortune -s
 
 alias lands='sudo /usr/sbin/pm-suspend && i3lock'
 alias q=exit
-alias pt=papertrail
-#alias papertail='pt|tail'
-
 
 function extract()      # Handy Extract Program
 {
@@ -174,8 +167,6 @@ alias emacs=vim
 alias hd='hexdump -C'
 
 alias publicip='curl ifconfig.co'
-
-eval $(thefuck --alias)
 
 alias start="sudo systemctl start"
 alias stop="sudo systemctl stop"

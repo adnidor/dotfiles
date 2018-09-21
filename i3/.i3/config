@@ -124,7 +124,7 @@ bindsym $mod+r mode "resize"
 # finds out, if available)
 bar {
         status_command i3status
-        tray_output LVDS1
+        tray_output primary
         modifier Mod3
         mode hide
         colors {
@@ -200,8 +200,8 @@ client.background       #000000
 exec --no-startup-id dunst
 
 #monitor brightness
-bindsym XF86MonBrightnessUp exec xbacklight -time 50 +5
-bindsym XF86MonBrightnessDown exec xbacklight -time 50 -5
+bindsym XF86MonBrightnessUp exec xbacklight -time 50 +2
+bindsym XF86MonBrightnessDown exec xbacklight -time 50 -2
 
 #volume control
 bindsym XF86AudioRaiseVolume exec pactl set-sink-volume @DEFAULT_SINK@ +5%
@@ -240,6 +240,10 @@ bindsym $mod+Shift+Print exec scrot -s
 bindsym XF86Sleep exec ~/scripts/desklamp.py toggle
 
 bindsym $mod+F1 exec mpc toggle
+
+exec blueberry-tray
+
+exec --no-startup-id libinput-gestures
 
 #dirty hack, see https://bugs.debian.org/cgi-bin/bugreport.cgi?bug=854376
 #exec gpg-connect-agent updatestartuptty /bye

@@ -19,6 +19,8 @@ set ssl_starttls=yes
 set smtp_url=`pass show uberspace_login | grep smtpurl | cut -d':' -f 2-`
 set smtp_pass=`pass show uberspace_login | head -n 1`
 
+set hostname=`hostname --short`
+
 
 #GPG settings
 set crypt_use_gpgme=yes
