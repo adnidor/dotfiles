@@ -1,2 +1,4 @@
 *.swp
 vim/.vim/.netrwhist
+ncmpcpp/.ncmpcpp/error.log
+i3/.i3/keylayout
