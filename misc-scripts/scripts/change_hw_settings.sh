@@ -1,10 +1,10 @@
 #!/bin/bash
 
 function Dmenu() {
-dmenu -l $1 -nb black -nf white -sb white -sf black
+rofi -dmenu $1 
 }
 
-selection=$(Dmenu 8 <<EOF
+selection=$(Dmenu <<EOF
 Keyboard layout
 Keyboard Backlight
 Desk lamp
@@ -21,7 +21,7 @@ case $selection in
 	$(dirname $0)/toggletouchpad.sh
 	;;
 "Keyboard Backlight")
-    $(dirname $0)/kb_backlight.sh $(Dmenu 3 <<EOF
+    $(dirname $0)/kb_backlight.sh $(Dmenu <<EOF
 Auto
 On
 Off
@@ -29,7 +29,7 @@ EOF
     )
 	;;
 "Keyboard layout")
-    setxkbmap $(Dmenu 3 <<EOF
+    setxkbmap $(Dmenu <<EOF
 de neo
 de
 en
@@ -37,21 +37,21 @@ EOF
     )
     ;;
 "Fancontrol")
-    $(dirname $0)/fancontrol.sh $(Dmenu 2 <<EOF
+    $(dirname $0)/fancontrol.sh $(Dmenu <<EOF
 On
 Off
 EOF
     )
     ;;    
 "Resume on Lid open")
-    $(dirname $0)/lidresume.sh $(Dmenu 2 <<EOF
+    $(dirname $0)/lidresume.sh $(Dmenu <<EOF
 On
 Off
 EOF
     )
     ;;
 "Desk lamp")
-    $(dirname $0)/desklamp.py $(Dmenu 2 <<EOF
+    $(dirname $0)/desklamp.py $(Dmenu <<EOF
 On
 Off
 EOF
