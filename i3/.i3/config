@@ -244,5 +244,8 @@ exec blueberry-tray
 
 exec --no-startup-id libinput-gestures
 
+bindsym $mod+F12 exec ~/scripts/dock.sh
+bindsym $mod+F11 exec ~/scripts/undock.sh
+
 #dirty hack, see https://bugs.debian.org/cgi-bin/bugreport.cgi?bug=854376
 #exec gpg-connect-agent updatestartuptty /bye
