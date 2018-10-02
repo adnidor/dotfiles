@@ -245,6 +245,10 @@ exec blueberry-tray
 
 exec --no-startup-id libinput-gestures
 
+exec --no-startup-id /usr/lib/kdeconnectd
+
+exec kdeconnect-indicator
+
 bindsym $mod+F12 exec ~/scripts/dock.sh
 bindsym $mod+F11 exec ~/scripts/undock.sh
 
