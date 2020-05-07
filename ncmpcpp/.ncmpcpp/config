@@ -4,5 +4,6 @@ ignore_leading_the = yes
 execute_on_song_change = ~/mpdnotify/mpdnotify
 follow_now_playing_lyrics = yes
 fetch_lyrics_for_current_song_in_background = yes
+data_fetching_delay = yes
 
 

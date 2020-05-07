@@ -1,6 +1,7 @@
 text/html; w3m -I=%{charset} -O=utf-8 -o display_link_number=1 -dump %s; nametemplate=%s.html; copiousoutput
 image/*; sxiv %s
 audio/*; cvlc --play-and-exit --norepeat %s
+application/pdf; pdftotext %s -; copiousoutput
 application/pdf; evince %s & sleep 2
 application/msword; libreoffice %s & sleep 2
 application/msexcel; libreoffice %s & sleep 2

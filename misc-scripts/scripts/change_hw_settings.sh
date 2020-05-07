@@ -6,14 +6,14 @@ rofi -dmenu $1
 
 selection=$(Dmenu <<EOF
 Keyboard layout
-Keyboard Backlight
 Desk lamp
 Wallpaper
-Fancontrol
-Resume on Lid open
 Touchpad On/Off
 Suspend
 Lock&Suspend
+Keyboard Backlight
+Fancontrol
+Resume on Lid open
 EOF
 )
 case $selection in

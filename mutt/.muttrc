@@ -8,16 +8,21 @@ set folder=imaps://enif.uberspace.de:993/
 
 set spoolfile=+INBOX
 set record=+Sent
-mailboxes +INBOX +INBOX.Mailinglisten
+mailboxes +INBOX +INBOX.Mailinglisten +INBOX.Uni
 
 set from=`pass show uberspace_login | grep from | awk -F: '{print $NF}'`
 set use_from=yes
 set realname="Yannik Enss"
+alternates yannik.enss@fsmi.uni-karlsruhe.de adnidor@fsmi.uni-karlsruhe.de
+alternates s_enss@ira.uka.de
+alternates utknt@student.kit.edu
+alternates .*@yannikenss.de .*@adnidor.de
 
 set header_cache=~/.cache/mutt
 set ssl_starttls=yes
-set smtp_url=`pass show uberspace_login | grep smtpurl | cut -d':' -f 2-`
-set smtp_pass=`pass show uberspace_login | head -n 1`
+set sendmail="/usr/bin/msmtp --read-envelope-from"
+#set smtp_url=`pass show uberspace_login | grep smtpurl | cut -d':' -f 2-`
+#set smtp_pass=`pass show uberspace_login | head -n 1`
 
 set hostname=`hostname --short`
 
@@ -42,6 +47,7 @@ set mime_forward=yes
 set sig_dashes=no
 set strict_threads
 
+unignore reply-to
 unignore x-spam-level
 unignore list-unsubscribe
 

@@ -172,6 +172,11 @@ alias start="sudo systemctl start"
 alias stop="sudo systemctl stop"
 
 export PATH="$HOME/opt/cross/bin:$PATH"
-export PATH="$HOME/.gem/ruby/2.5.0/bin:$PATH"
+export PATH="/home/yannik/.gem/ruby/2.6.0/bin:$PATH"
 export PATH="$HOME/bin:$PATH"
+#export PATH="/home/yannik/Downloads/fomu-toolchain-linux_x86_64-v1.3/bin:$PATH"
 
+alias ffspass='PASSWORD_STORE_DIR=~/.ffs-pass pass'
+
+alias tröt="toot post -e vim"
+alias units="units -v"
