@@ -13,8 +13,10 @@ font -misc-fixed-medium-r-normal--13-120-75-75-C-70-iso10646-1
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
 
+mouse_warping output
+
 # kill focused window
-bindsym $mod+Shift+q kill
+bindsym $mod+Shift+x kill
 
 # change focus
 bindsym $mod+Left focus left
@@ -112,6 +114,8 @@ mode "resize" {
 
 bindsym $mod+r mode "resize"
 
+bindsym $mod+Tab exec ~/scripts/i3-display-swap.sh
+
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
 bar {
@@ -127,22 +131,26 @@ bar {
             focused_workspace  #ffffff #ffffff #000000
             active_workspace   #000000 #000000 #ffffff
             inactive_workspace #000000 #000000 #ffffff
-            urgent_workspace   #ff0000 #ff0000 #ffffff
+            urgent_workspace   #0000ff #0000ff #ffffff
        }
 }
 
 #hide borders
-hide_edge_borders both
-new_window none
-new_float none
+#hide_edge_borders both
+#new_window none
+#new_float none
+default_border none
+default_floating_border none
 
 #scratchpad
-bindsym $mod+plus scratchpad show
-bindsym $mod+Shift+plus move scratchpad
+bindsym $mod+dead_acute scratchpad show
+bindsym $mod+Shift+dead_acute move scratchpad
 
 #move current workspace to other monitor
 bindsym $mod+control+Right move workspace to output right
 bindsym $mod+control+Left move workspace to output left
+bindsym $mod+control+Up move workspace to output up
+bindsym $mod+control+Down move workspace to output down
 
 #move to workspace on the right
 bindsym $mod+control+d workspace next
@@ -157,13 +165,16 @@ focus_on_window_activation urgent
 client.focused          #222222 #222222 #ffffff #ffffff
 client.focused_inactive #000000 #000000 #888888 #ffffff
 client.unfocused        #000000 #000000 #555555 #ffffff
-client.urgent           #ff0000 #ff0000 #ffffff #ffffff
+client.urgent           #0000ff #0000ff #ffffff #ffffff
 client.background       #000000
 
-for_window [class="Sxiv"] fullscreen enable
+#for_window [class="Sxiv"] fullscreen enable
 for_window [class="XCalc"] floating enable
 for_window [class="XTerm"] floating enable
+for_window [instance="floating"] floating enable
 for_window [title="CSSH"] floating disable
+#for_window [title="KDE Connect Daemon"] floating enable
+for_window [class="kdeconnect.daemon"] fullscreen disable; floating enable; resize set width 1920 height 1080; move absolute position center
 
 
 # autostart
@@ -176,6 +187,11 @@ exec --no-startup-id /usr/lib/kdeconnectd
 exec --no-startup-id indicator-kdeconnect
 exec --no-startup-id ~/.fehbg
 exec --no-startup-id solaar
+exec --no-startup-id picom
+
+exec --no-startup-id pactl load-module module-loopback source=autosink.monitor sink=echo-canceled-sink sink_input_properties=marker=true source_dont_move=true
+exec --no-startup-id pactl load-module module-null-sink sink_properties=device.description=Autosink sink_name=autosink
+
 
 # create keymap file in .i3/keylayout
 exec_always --no-startup-id ~/scripts/pi3c_wrapper.sh
@@ -199,6 +215,10 @@ bindsym $mod+Next exec pactl set-sink-volume @DEFAULT_SINK@ -5%
 bindsym $mod+Shift+Next exec pactl set-sink-volume @DEFAULT_SINK@ -1%
 bindsym XF86AudioMute exec pactl set-sink-mute @DEFAULT_SINK@ toggle
 
+bindsym XF86AudioMicMute exec pactl set-source-mute @DEFAULT_SOURCE@ toggle
+
+bindsym Control+End exec pactl set-source-mute alsa_input.usb-BEHRINGER_UMC404HD_192k-00.multichannel-input toggle
+
 bindsym Pause exec ~/scripts/change_hw_settings.sh
 bindsym XF86Tools exec ~/scripts/change_hw_settings.sh
 
@@ -209,9 +229,9 @@ bindsym $mod+Shift+Print exec scrot -s
 
 bindsym XF86Sleep exec ~/scripts/desklamp.py toggle
 
-bindsym $mod+F1 exec MPD_HOST=music.yannik.intern.yannikenss.de mpc toggle
-bindsym $mod+F2 exec MPD_HOST=music.yannik.intern.yannikenss.de mpc prev
-bindsym $mod+F3 exec MPD_HOST=music.yannik.intern.yannikenss.de mpc next
+bindsym $mod+F1 exec mpc toggle
+bindsym $mod+F2 exec mpc prev
+bindsym $mod+F3 exec mpc next
 
 bindsym $mod+F12 exec ~/scripts/dock.sh
 bindsym $mod+F11 exec ~/scripts/undock.sh
@@ -236,4 +256,10 @@ bindsym $mod+Return exec i3-sensible-terminal
 bindsym $mod+d exec rofi -show run -sort
 
 #provide small terminal
-bindsym $mod+Shift+Return exec xterm
+bindsym $mod+Shift+Return exec urxvt -name floating
+
+bindcode 78 exec pactl set-source-mute @DEFAULT_SOURCE@ off
+bindcode 78 --release exec pactl set-source-mute @DEFAULT_SOURCE@ on
+
+bindcode 192 exec ~/scripts/switch-to.sh alsa_output.usb-BEHRINGER_UMC404HD_192k-00.HiFi__Line2__sink
+bindcode 193 exec ~/scripts/switch-to.sh alsa_output.usb-BEHRINGER_UMC404HD_192k-00.HiFi__Line1__sink
