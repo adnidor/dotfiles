@@ -5,10 +5,11 @@ gpg-connect-agent /bye
 export SSH_AUTH_SOCK=$(gpgconf --list-dirs agent-ssh-socket)
 export MAILER="~/scripts/email.sh"
 export QT_QPA_PLATFORMTHEME=qt5ct
-setxkbmap de
+setxkbmap de neo
 xset dpms 0 0 0
 xinput set-prop 'SynPS/2 Synaptics TouchPad' "libinput Click Method Enabled" 0 1
 xinput set-prop 'SynPS/2 Synaptics TouchPad' "libinput Disable While Typing Enabled" 0
+xinput set-prop 'TPPS/2 IBM TrackPoint' "libinput Accel Speed" 1
 
 if [ -d /etc/X11/xinit/xinitrc.d ] ; then
  for f in /etc/X11/xinit/xinitrc.d/?*.sh ; do

@@ -66,8 +66,9 @@
 ! URxvt*borderColor: colour
 
 ! Select the fonts to be used. This is a comma separated list of font
- URxvt*font: xft:Droid Mono:size=9
-URxvt*letterSpace: -4
+! URxvt*font: xft:Droid Mono:size=9
+URxvt*font: xft:Noto Sans Mono:size=10
+!URxvt*letterSpace: 1
 
 ! URxvt*boldFont: fontlist
 
@@ -81,7 +82,7 @@ URxvt*letterSpace: -4
 ! URxvt*intensityStyles: boolean
 
 ! Set window title string, the default title is the command-line
-URxvt.title: yannikarch
+!URxvt.title: yannikarch
 
 ! Set the name used to label the windows icon or displayed in an
 ! URxvt*iconName: string
@@ -108,7 +109,7 @@ URxvt.urgentOnBell: true
 
 ! Specify a command pipe for vt100 printer [default lpr(1)]. Use
 ! URxvt*print-pipe: string
-URxvt.print-pipe: lpr -p -T printscreen
+URxvt.print-pipe: /bin/echo lpr -p -T printscreen
 
 ! Set scrollbar style to rxvt, plain, next or xterm. plain is the
 ! URxvt*scrollstyle: mode
@@ -138,7 +139,7 @@ URxvt.scrollBar: false
 ! URxvt*scrollTtyKeypress: boolean
 
 ! Save number lines in the scrollback buffer [default 64]. This
-! URxvt*saveLines: number
+URxvt*saveLines: 100000
 
 ! Internal border of number pixels. This resource is limited to 100;
 ! URxvt*internalBorder: number
@@ -272,11 +273,15 @@ URxvt.scrollBar: false
 ! URxvt*iso14755_52: boolean
 
 URxvt*.transparent: true
+floating.transparent:  false
 URxvt*.shading: 40
+
+URxvt*.depth: 32
 
 ! special
 *.foreground:   #f8f8f8
 *.background:   #171717
+URxvt*.background:   [75]#171717
 *.cursorColor:  #f8f8f8
 
 ! black
