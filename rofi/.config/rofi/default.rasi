@@ -9,7 +9,7 @@
     lightbg:                     #11111199;
     background:                  #00000099;
     lightfg:                     rgba ( 88, 104, 117, 100 % );
-    background-color:            rgba ( 0, 0, 0, 0 % );
+    background-color:            rgba ( 255, 0, 0, 0 % );
     spacing:                     2;
     selected-normal-foreground:  @lightbg;
     normal-foreground:           @foreground;
@@ -18,7 +18,7 @@
     urgent-foreground:           @red;
     alternate-urgent-background: @lightbg;
     active-foreground:           @blue;
-    selected-active-foreground:  @background;
+    selected-active-foreground:  @foreground;
     alternate-active-background: @lightbg;
     alternate-normal-foreground: @foreground;
     normal-background:           @background;
